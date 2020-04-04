@@ -1,0 +1,28 @@
+name: 'Keep Remote File Locally Up-to-date'
+description: 'Keep a file in the repository up-to-date with a remote file'
+inputs:
+  url:
+    description: 'The url of the file to download'
+    required: true
+  file_in_repo:
+    description: 'The location of the file in the repository to update if changed'
+    required: true
+  git_user:
+    description: 'The name of the git user'
+    required: true
+    default: 'thelastproject/keep-remote-locally-up-to-date'
+  git_email:
+    description: 'The email of the git user'
+    required: true
+    default: 'no-reply@github.com'
+outputs:
+  status:
+    description: 'If the file has changed'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url }}
+    - ${{ inputs.file_in_repo }}
+    - ${{ inputs.git_user }}
+    - ${{ inputs.git_email }}

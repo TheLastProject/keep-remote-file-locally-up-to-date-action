@@ -8,9 +8,8 @@ git_email="$4"
 mkdir -p "$(dirname "$file_in_repo")"
 wget "$url" -O "$file_in_repo"
 
-git config user.name "$git_name"
-git config user.email "$git_email"
-
+git config --global user.name "$git_name"
+git config --global user.email "$git_email"
 git config --global --add safe.directory /github/workspace
 
 git add "$file_in_repo"

@@ -31,7 +31,7 @@ jobs:
     steps:
     - name: Checkout repo
       id: checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Update file
       id: update_file
       uses: TheLastProject/keep-remote-file-locally-up-to-date-action@v1
